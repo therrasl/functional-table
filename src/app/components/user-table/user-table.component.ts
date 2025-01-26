@@ -10,17 +10,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { computed } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
+
 import { User } from '@models/user.model';
 import { TableColumn } from '@models/user-table.model';
 import { FilterService } from '@services/filter.service';
 import { SortService } from '@services/sort.service';
 import { PaginationService } from '@services/pagination.service';
 import { UserService } from '@services/user.service';
-import { computed } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/core';
-import { NgIf } from '@angular/common';
-import { NgFor } from '@angular/common';
-import { KeyValuePipe } from '@angular/common';
+
 @Component({
   selector: 'app-user-table',
   standalone: true,

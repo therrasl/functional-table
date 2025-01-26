@@ -4,6 +4,8 @@
     background: #1e1e1e;
     color: #e0e0e0;
     min-height: 100vh;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .controls {
@@ -30,6 +32,20 @@
 
       .mat-icon {
         margin-right: 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      
+      mat-form-field {
+        width: 100%;
+        min-width: unset;
+      }
+
+      .column-toggle-button {
+        width: 100%;
+        margin-top: 0;
       }
     }
   }
@@ -129,12 +145,31 @@
   }
 }
 
-@media (max-width: 768px) {
-  .controls {
-    flex-direction: column;
-    
-    mat-form-field {
-      width: 100%;
+@media (max-width: 600px) {
+  :host ::ng-deep {
+    .mat-mdc-table {
+      .mat-mdc-header-cell,
+      .mat-mdc-cell {
+        padding: 8px;
+        font-size: 14px;
+      }
+
+      .mat-mdc-header-cell:first-child,
+      .mat-mdc-cell:first-child {
+        padding-left: 8px;
+      }
+
+      .mat-mdc-header-cell:last-child,
+      .mat-mdc-cell:last-child {
+        padding-right: 8px;
+      }
+    }
+
+    .mat-mdc-paginator {
+      .mat-mdc-paginator-container {
+        padding: 0 8px;
+        min-height: 48px;
+      }
     }
   }
 }

@@ -27,6 +27,10 @@ export class PaginationService {
   }
 
   setUsers(users: User[]) {
-    this.state.update(state => ({ ...state, users }));
+    this.state.update(state => ({ 
+      ...state, 
+      users,
+      currentPage: 1 
+    }));
   }
 } 

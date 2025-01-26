@@ -72,6 +72,7 @@ export class UserTableComponent implements OnInit {
 
   onSearch(term: string) {
     this.filter.setSearchTerm(term);
+    this.pagination.setPage(1);
     this.updatePaginatedData();
   }
 

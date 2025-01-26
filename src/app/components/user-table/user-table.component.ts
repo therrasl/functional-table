@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
@@ -19,12 +18,13 @@ import { PaginationService } from '@services/pagination.service';
 import { UserService } from '@services/user.service';
 import { computed } from '@angular/core';
 import { ChangeDetectionStrategy } from '@angular/core';
-
+import { NgIf } from '@angular/common';
+import { NgFor } from '@angular/common';
+import { KeyValuePipe } from '@angular/common';
 @Component({
   selector: 'app-user-table',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
@@ -36,6 +36,9 @@ import { ChangeDetectionStrategy } from '@angular/core';
     MatButtonModule,
     MatMenuModule,
     MatCheckboxModule,
+    NgIf,
+    NgFor,
+    KeyValuePipe,
   ],
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.scss'],

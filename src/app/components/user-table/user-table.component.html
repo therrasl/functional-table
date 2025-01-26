@@ -14,14 +14,14 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Записей на странице</mat-label>
+      <mat-label>Пользователей на странице</mat-label>
       <mat-select
         [ngModel]="pageSize()"
         (ngModelChange)="onPageSizeChange($event)"
       >
-        <mat-option [value]="5">5 записей</mat-option>
-        <mat-option [value]="10">10 записей</mat-option>
-        <mat-option [value]="20">20 записей</mat-option>
+        <mat-option [value]="5">5 пользователей</mat-option>
+        <mat-option [value]="10">10 пользователей</mat-option>
+        <mat-option [value]="20">20 пользователей</mat-option>
       </mat-select>
     </mat-form-field>
 

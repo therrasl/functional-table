@@ -1,0 +1,152 @@
+:host {
+  .table-container {
+    padding: 1rem;
+    background: #1e1e1e;
+    color: #e0e0e0;
+    min-height: 100vh;
+  }
+
+  .controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    mat-form-field {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .column-toggle-button {
+      background: #2d2d2d;
+      color: white;
+      padding: 0 16px;
+      height: 56px;
+      margin-top: 4px;
+      border: 1px solid #404040;
+      border-radius: 4px;
+      align-self: flex-start;
+
+      .mat-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .column-menu-content {
+    padding: 16px;
+    background: #2d2d2d;
+  }
+
+  .column-checkbox {
+    display: block;
+    margin: 8px 0;
+    padding: 8px 16px;
+    color: white;
+  }
+}
+
+
+:host ::ng-deep {
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      background: #2d2d2d;
+    }
+    
+    .mat-mdc-input-element,
+    input.mat-mdc-input-element {
+      color: white !important;
+    }
+
+    .mat-mdc-select-value-text {
+      color: white;
+    }
+
+    .mat-mdc-form-field-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  .mdc-checkbox {
+    .mdc-checkbox__background {
+      border-color: white;
+      background-color: transparent;
+    }
+
+    .mdc-checkbox__checkmark {
+      color: white;
+    }
+
+    &.mdc-checkbox--selected .mdc-checkbox__background {
+      background-color: #404040;
+      border-color: #404040;
+    }
+  }
+
+
+  .mat-mdc-menu-panel {
+    background: #2d2d2d;
+    border-radius: 4px;
+  }
+
+
+  .mat-mdc-table {
+    width: 100%;
+    background: #2d2d2d;
+
+    .mat-mdc-header-cell {
+      background: #333333;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background: #404040;
+      }
+    }
+
+    .mat-mdc-cell {
+      color: #e0e0e0;
+      border-bottom: 1px solid #404040;
+    }
+
+    .mat-mdc-row {
+      &:hover {
+        background: #383838;
+      }
+
+      &:nth-child(even) {
+        background: #2a2a2a;
+      }
+    }
+  }
+
+  .mat-mdc-paginator {
+    background: #333333;
+    color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
+
+.loading {
+  color: #ffffff;
+}
+
+.mat-icon[color="accent"] {
+  color: #66bb6a;
+}
+
+.mat-icon:not([color="accent"]) {
+  color: #ef5350;
+} 

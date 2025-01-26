@@ -36,25 +36,23 @@ export class FilterService {
   }
 
   setSearchTerm(searchTerm: string) {
-    this.state.update(state => ({ ...state, searchTerm }));
-    this.applyFilter();
+    this.state.update(state => {
+      const filteredUsers = this.filterUsers(state.users, searchTerm);
+      return { ...state, searchTerm, filteredUsers };
+    });
   }
 
   setUsers(users: User[]) {
-    this.state.update(state => ({ ...state, users, filteredUsers: users }));
+    this.state.update(state => {
+      const filteredUsers = this.filterUsers(users, state.searchTerm);
+      return { ...state, users, filteredUsers };
+    });
   }
 
   toggleColumn(column: TableColumn, value: boolean) {
     this.state.update(state => ({
       ...state,
       visibleColumns: { ...state.visibleColumns, [column]: value }
-    }));
-  }
-
-  private applyFilter() {
-    this.state.update(state => ({
-      ...state,
-      filteredUsers: this.filterUsers(state.users, state.searchTerm)
     }));
   }
 

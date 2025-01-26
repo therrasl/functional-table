@@ -18,6 +18,7 @@ import { SortService } from '@services/sort.service';
 import { PaginationService } from '@services/pagination.service';
 import { UserService } from '@services/user.service';
 import { computed } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-user-table',
@@ -38,9 +39,9 @@ import { computed } from '@angular/core';
   ],
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserTableComponent implements OnInit {
-    
   private readonly filter = inject(FilterService);
   private readonly sort = inject(SortService);
   private readonly pagination = inject(PaginationService);
@@ -52,8 +53,10 @@ export class UserTableComponent implements OnInit {
   readonly currentPage = this.pagination.currentPage;
   readonly sortColumn = this.sort.sortColumn;
   readonly sortDirection = this.sort.sortDirection;
-  
-  readonly visibleColumns = computed(() => this.filter.visibleColumns() as Record<string, boolean>);
+
+  readonly visibleColumns = computed(
+    () => this.filter.visibleColumns() as Record<string, boolean>
+  );
   readonly displayedColumns = computed(() => this.filter.displayedColumns());
   readonly filteredUsers = computed(() => this.filter.filteredUsers());
   readonly paginatedUsers = computed(() => this.pagination.paginatedUsers());
